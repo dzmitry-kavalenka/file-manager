@@ -12,10 +12,11 @@ const init = () => {
   stdout.write(`You are currently in ${cwd()}\n`);
 
   stdin.on("data", (chunk) => {
-    const command = chunk.toString().trim();
+    const command = chunk.toString().trim().split(' ')[0];
+    const commandArgs = chunk.toString().trim().split(' ').slice(1);
 
-    commands[command]();
-    stdout.write(`You are currently in ${cwd()}\n`);
+    commands[command](commandArgs);
+    stdout.write(`\nYou are currently in ${cwd()}\n`);
   });
 
   process.on("SIGINT", () => {
