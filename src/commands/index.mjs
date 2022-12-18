@@ -6,6 +6,7 @@ import readFile from "./cat.mjs";
 import createFile from "./add.mjs";
 import rename from "./rn.mjs";
 import copyFile from "./cp.mjs";
+import moveFile from "./mv.mjs";
 
 const commands = {
   "up": goUp,
@@ -15,6 +16,7 @@ const commands = {
   "add": createFile,
   "rn": rename,
   "cp": copyFile,
+  "mv": moveFile,
   ".exit": sayGoodbye,
 }
 

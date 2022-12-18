@@ -2,7 +2,7 @@ import fs from "fs";
 import { stderr } from "node:process";
 import path from "path";
 
-const copyFile = (args) => {
+const copyFile = async (args) => {
   if (!args[0] || !args[1]) {
     stderr.write("\nInvalid input\n");
     return;
