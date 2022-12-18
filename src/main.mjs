@@ -1,20 +1,25 @@
-import { argv, stdout } from "node:process";
-import os from "os";
+import { stdin, stdout, chdir, cwd } from "node:process";
 
-const regex = `^(.*?)${os.userInfo().username}`;
-const osUserDir = process.cwd().match(regex)[0];
-
-const greeting = () => {
-  const nameArg = argv.find((arg) => arg.startsWith("--username"));
-
-  if (nameArg) {
-    stdout.write(`Welcome to the File Manager, ${nameArg.slice(11)}!\n`);
-    stdout.write(`\nYou are currently in ${osUserDir}\n`);
-  }
-};
+import { sayGoodbye, sayHello } from "./greeting.mjs";
+import { OS_USER_DIR } from "./constants.mjs";
 
 const init = () => {
-  greeting();
+  sayHello();
+
+  chdir(OS_USER_DIR);
+  stdout.write(`You are currently in ${cwd()}\n`);
+
+  stdin.on("data", (chunk) => {
+    const command = chunk.toString().trim();
+
+    if (command === ".exit") {
+      sayGoodbye();
+    }
+  });
+
+  process.on("SIGINT", () => {
+    sayGoodbye();
+  });
 };
 
 init();
