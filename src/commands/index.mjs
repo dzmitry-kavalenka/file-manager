@@ -4,6 +4,7 @@ import goTo from "./cd.mjs";
 import getListOfFiles from './ls.mjs'
 import readFile from "./cat.mjs";
 import createFile from "./add.mjs";
+import rename from "./rn.mjs";
 
 const commands = {
   "up": goUp,
@@ -11,6 +12,7 @@ const commands = {
   "ls": getListOfFiles,
   "cat": readFile,
   "add": createFile,
+  "rn": rename,
   ".exit": sayGoodbye,
 }
 
