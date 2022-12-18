@@ -12,7 +12,9 @@ const goUp = () => {
 
       chdir(upperDir);
     }
-  } catch (err) {}
+  } catch (err) {
+    stderr.write("\nOperation failed\n");
+  }
 };
 
 export default goUp;
