@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import { stderr, stdout } from "node:process";
+import path from "path";
 
 const readFile = async (args) => {
   try {
@@ -8,7 +9,9 @@ const readFile = async (args) => {
       return;
     }
 
-    const content = await fs.readFile(args[0], { encoding: "utf8" });
+    const content = await fs.readFile(path.resolve(args[0]), {
+      encoding: "utf8",
+    });
 
     stdout.write(`\n${content}`);
   } catch (error) {

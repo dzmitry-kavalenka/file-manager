@@ -1,4 +1,5 @@
 import { chdir, stderr } from "node:process";
+import path from "path";
 
 const goTo = (args) => {
   try {
@@ -7,7 +8,7 @@ const goTo = (args) => {
       return;
     }
 
-    chdir(args[0]);
+    chdir(path.resolve(args[0]));
   } catch (error) {
     stderr.write("\nOperation failed\n");
   }

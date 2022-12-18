@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import { cwd, stderr } from "node:process";
+import path from "path";
 
 const rename = async (args) => {
   try {
@@ -8,7 +9,7 @@ const rename = async (args) => {
       return;
     }
 
-    await fs.rename(`${cwd()}/${args[0]}`, `${cwd()}/${args[1]}`);
+    await fs.rename(`${path(args[0])}`, `${path(args[1])}`);
   } catch (error) {
     stderr.write("\nOperation failed\n");
   }
