@@ -1,9 +1,12 @@
 import { stdin, stdout, chdir, cwd, stderr } from "node:process";
+import os from "os";
 
 import commands from "./commands/index.mjs";
 
 import { sayGoodbye, sayHello } from "./greeting.mjs";
-import { OS_USER_DIR } from "./constants.mjs";
+
+const USERNAME_REGEX = `^(.*?)${os.userInfo().username}`;
+const OS_USER_DIR = cwd().match(USERNAME_REGEX)[0];
 
 const init = async () => {
   sayHello();
