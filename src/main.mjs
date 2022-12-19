@@ -1,4 +1,4 @@
-import { stdin, stdout, chdir, cwd } from "node:process";
+import { stdin, stdout, chdir, cwd, stderr } from "node:process";
 
 import commands from "./commands/index.mjs";
 
@@ -15,7 +15,12 @@ const init = async () => {
     const command = chunk.toString().trim().split(" ")[0];
     const commandArgs = chunk.toString().trim().split(" ").slice(1);
 
-    await commands[command](commandArgs);
+    if (commands[command]) {
+      await commands[command](commandArgs);
+    } else {
+      stderr.write("\nInvalid input");
+    }
+
     stdout.write(`\nYou are currently in ${cwd()}\n`);
   });
 
