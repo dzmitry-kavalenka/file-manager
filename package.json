@@ -1,0 +1,19 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/main.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzmitry-kavalenka/file-manager.git"
+  },
+  "author": "dzmitriy.kavalenka@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dzmitry-kavalenka/file-manager/issues"
+  },
+  "homepage": "https://github.com/dzmitry-kavalenka/file-manager#readme"
+}
