@@ -8,7 +8,7 @@ import copyFile from "./cp.mjs";
 import moveFile from "./mv.mjs";
 import removeFile from "./rm.mjs";
 
-const commands = {
+export default {
   up: goUp,
   cd: goTo,
   ls: getListOfFiles,
@@ -19,5 +19,3 @@ const commands = {
   mv: moveFile,
   rm: removeFile,
 };
-
-export default commands;
